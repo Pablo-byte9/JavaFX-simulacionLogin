@@ -8,13 +8,20 @@ package com.pablocoj.system;
  *
  * @author informatica
  */
-public class Principal {
+import com.pablocoj.controller.SceneManager;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage; 
+import javafx.stage.StageStyle;
 
-    /**
-     * @param args the command line arguments
-     */
+public class Principal extends Application {
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        launch(args);
     }
-    
+    @Override
+    public void start (Stage escenarioRaiz) {
+        SceneManager.getInstanciaSceneManager().setEscenarioPrincipal(escenarioRaiz);
+        SceneManager.getInstanciaSceneManager().ventanaLogin();
+    }
 }
