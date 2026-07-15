@@ -11,7 +11,7 @@ package com.pablocoj.model;
 public class Usuario {
 
     private String username;
-    private int password;
+    private String password;
     private String nombreCompleto;
     private Rol rol;
 
@@ -19,7 +19,7 @@ public class Usuario {
  
     }
 
-    public Usuario(String username, int password, String nombreCompleto, Rol rol) {
+    public Usuario(String username, String password, String nombreCompleto, Rol rol) {
         this.username = username;
         this.password = password;
         this.nombreCompleto = nombreCompleto;
@@ -34,11 +34,11 @@ public class Usuario {
         this.username = username;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

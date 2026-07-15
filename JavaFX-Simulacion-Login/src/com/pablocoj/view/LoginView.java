@@ -48,19 +48,21 @@ public class LoginView extends BorderPane {
     private GridPane formulario;
     private Button btnIniciarSesion;
     private VBox cajaVertical;
-
+    
+    private final String RUTA_ESTILOS = "/com/pablocoj/styles/";
 
     private LoginView() {
+        this.getStylesheets().add(RUTA_ESTILOS + "LoginStyles.css");
         this.setPadding(new Insets(15));
          
         this.setBorder(new Border(
-        new BorderStroke(Color.BLUEVIOLET,//Color de Borde
+        new BorderStroke(Color.MEDIUMSPRINGGREEN,//Color de Borde
                 BorderStrokeStyle.SOLID,//Estilo de Linea
                 new CornerRadii(25),//Pixeles de redondeado
                 new BorderWidths(10))//Ancho del Borde
         ));
         this.setBackground(new Background(
-                new BackgroundFill(Paint.valueOf("B0F527"), //  Color del fondo
+                new BackgroundFill(Paint.valueOf("F0F8FF"), //  Color del fondo
                         new CornerRadii(30),//Pixeles de redondeado
                         Insets.EMPTY)//Espaciado del fondo
         ));
@@ -92,11 +94,11 @@ public class LoginView extends BorderPane {
         btnIniciarSesion = new Button("Iniciar Sesion");
         
         imgLogoLogin = new ImageView(new ImagenController().getImage("logo"));
-        imgLogoLogin.setFitHeight(100);
-        imgLogoLogin.setFitWidth(100);
+        imgLogoLogin.setFitHeight(200);
+        imgLogoLogin.setFitWidth(200);
         imgLogoLogin.setCache(true);
         
-        cajaVertical.setAlignment(Pos.CENTER);
+        cajaVertical.setAlignment(Pos.TOP_CENTER);
         
         cajaVertical.getChildren().addAll(
                 imgLogoLogin,formulario,
@@ -104,9 +106,6 @@ public class LoginView extends BorderPane {
         );
         
         this.setCenter(cajaVertical);
-    }
-    public void cerrarVentana () {
-        
     }
     
     public static LoginView getInstanciaLoginView() {
