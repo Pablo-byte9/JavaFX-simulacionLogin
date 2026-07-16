@@ -17,9 +17,13 @@ public class AuthSistema {
     private static ArrayList<Usuario> listaUsuario = new ArrayList<>();
 
     public AuthSistema() {
-        Usuario usuarioAdmin = new Usuario("admin", "admin", "admin", Rol.ADMIN);
-        Usuario usuarioUser = new Usuario("user", "user", "user", Rol.USER);
-        Usuario userYo = new Usuario("pablo", "123456", "Pablo Coj", Rol.USER);
+        Usuario usuarioAdmin = new Usuario("admin", "Admin", "Administrador", Rol.ADMIN);
+        Usuario usuarioUser = new Usuario("user", "User", "Usuario", Rol.USER);
+        Usuario usuarioYo = new Usuario("pablo", "123456", "Pablo Coj", Rol.USER);
+
+        listaUsuario.add(usuarioAdmin);
+        listaUsuario.add(usuarioUser);
+        listaUsuario.add(usuarioYo);
     }
 
     public Usuario login(String nombreUsuario, String clave) {
@@ -27,6 +31,7 @@ public class AuthSistema {
             if (usuarioBuscado.getUsername().equals(nombreUsuario)
                     && usuarioBuscado.getPassword().equals(clave)) {
 
+                return usuarioBuscado;
             }
         }
         return null;

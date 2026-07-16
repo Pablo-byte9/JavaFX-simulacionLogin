@@ -65,26 +65,28 @@ public class LoginController {
 
     public void iniciarSesion() {
         String nombreUsuario = this.LOGIN_VIEW.getTxtNombreUsuario().getText().trim();
-        String calve = this.LOGIN_VIEW.getPwdClave().getText().trim();
-        
+        String clave = this.LOGIN_VIEW.getPwdClave().getText().trim();
+
         if (nombreUsuario.isEmpty()) {
             JOptionPane.showMessageDialog(null,
                     "No deje el Campo Nombre Usuario Vacio");
             this.LOGIN_VIEW.getTxtNombreUsuario().getStyleClass().add("empty");
-            
-        } else if (calve.isEmpty()) {
+
+        } else if (clave.isEmpty()) {
             this.LOGIN_VIEW.getTxtNombreUsuario().getStyleClass().remove("empty");
             this.LOGIN_VIEW.getPwdClave().getStyleClass().add("empty");
             JOptionPane.showMessageDialog(null,
                     "No deje el Campo Contraseña Vacio");
-            
+
         } else {
             this.LOGIN_VIEW.getPwdClave().getStyleClass().remove("empty");
-            Usuario usuario = authSistema.login(nombreUsuario, calve);
+            Usuario usuario = authSistema.login(nombreUsuario, clave);
             if (usuario == null) {
+                this.LOGIN_VIEW.getTxtNombreUsuario().getStyleClass().add("error");
+                this.LOGIN_VIEW.getPwdClave().getStyleClass().add("error");
                 JOptionPane.showMessageDialog(null, "Valide sus Credenciales");
             } else {
-                JOptionPane.showMessageDialog(null, "Hola");
+                SceneManager.getInstanciaSceneManager().ventanaBienvenida(usuario.getNombreCompleto());
             }
         }
     }

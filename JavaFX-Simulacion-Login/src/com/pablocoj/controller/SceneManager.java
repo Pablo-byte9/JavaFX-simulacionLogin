@@ -4,7 +4,9 @@
  */
 package com.pablocoj.controller;
 
+import com.pablocoj.view.BienvenidaView;
 import com.pablocoj.view.LoginView;
+import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -26,7 +28,7 @@ public class SceneManager {
     private SceneManager() {
 
     }
-    
+
     public static SceneManager getInstanciaSceneManager() {
         if (instanciaSceneManager == null) {
             instanciaSceneManager = new SceneManager();
@@ -84,10 +86,10 @@ public class SceneManager {
             this.escenarioPrincipal.initStyle(StageStyle.TRANSPARENT);
 
             LoginView loginView = LoginView.getInstanciaLoginView();
-            cambiarEscenaPrincipal(loginView.getInstanciaLoginView(), 450, 500 );
+            cambiarEscenaPrincipal(loginView.getInstanciaLoginView(), 450, 500);
             this.escenaPrincipal.setFill(Color.TRANSPARENT); //Fondo del Contenedor
-            new LoginController( loginView);
-            
+            new LoginController(loginView);
+
         } catch (NullPointerException objetoNulo) {
             JOptionPane.showMessageDialog(null,
                     "Error de Objeto nulo: Cambiar Escena Principal");
@@ -98,4 +100,32 @@ public class SceneManager {
         }
     }
 
+    public void ventanaBienvenida(String nombreUsuario) {
+        try {
+            //Metodo que oculta la opciones de ventana por defecto
+
+            Stage escenarioSecundario = new Stage();
+
+            escenarioSecundario.initStyle(StageStyle.TRANSPARENT);
+            escenarioSecundario.setResizable(false);
+
+            BienvenidaView bienvenidaView = new BienvenidaView();
+            bienvenidaView.getLblBienvenida().setText("BIENVENIDO AL SISTEMA: " + nombreUsuario);
+            bienvenidaView.setAlignment(Pos.CENTER);
+
+            Scene escena = new Scene(bienvenidaView, 300, 250);
+            escena.setFill(Color.TRANSPARENT);
+
+            escenarioSecundario.setScene(escena);
+            escenarioSecundario.show();
+
+        } catch (NullPointerException objetoNulo) {
+            JOptionPane.showMessageDialog(null,
+                    "Error Objeto Nulo: Ventana Bienvenida");
+            objetoNulo.printStackTrace(); //imprime todo el camino hacia el Error
+        } catch (Exception errorPadre) {
+            JOptionPane.showMessageDialog(null, "Error Padre: Ventana Bienvenida");
+            errorPadre.printStackTrace();
+        }
+    }
 }

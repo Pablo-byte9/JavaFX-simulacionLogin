@@ -11,7 +11,7 @@ package com.pablocoj.system;
 import com.pablocoj.controller.SceneManager;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.stage.Stage; 
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Principal extends Application {
@@ -19,8 +19,9 @@ public class Principal extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
     @Override
-    public void start (Stage escenarioRaiz) {
+    public void start(Stage escenarioRaiz) {
         SceneManager.getInstanciaSceneManager().setEscenarioPrincipal(escenarioRaiz);
         SceneManager.getInstanciaSceneManager().ventanaLogin();
     }

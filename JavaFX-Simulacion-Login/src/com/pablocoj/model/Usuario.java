@@ -16,7 +16,7 @@ public class Usuario {
     private Rol rol;
 
     public Usuario() {
- 
+
     }
 
     public Usuario(String username, String password, String nombreCompleto, Rol rol) {

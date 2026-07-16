@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
  * @author informatica
  */
 public class ImagenController {
-    
+
     private final String RUTA_IMAGENES = "/com/pablocoj/resource/";
 
     /**
@@ -25,10 +25,10 @@ public class ImagenController {
         Image imagenAMostrar;
         switch (nombreImagen) {
             case "logo":
-                imagenAMostrar = new Image(RUTA_IMAGENES + "reze-chainsaw-man - copia.gif");
+                imagenAMostrar = new Image(RUTA_IMAGENES + "Login.png");
                 break;
             default:
-                imagenAMostrar = new Image(RUTA_IMAGENES + "reze-chainsaw-man - copia.gif");
+                imagenAMostrar = new Image(RUTA_IMAGENES + "Login.png");
         }
         return imagenAMostrar;
     }
